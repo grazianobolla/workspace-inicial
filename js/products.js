@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_101_URL).then(function (resultObj) {
+    getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + '.json').then(function (resultObj) {
         if (resultObj.status === "ok") {
             showProducts(resultObj.data);
         }
