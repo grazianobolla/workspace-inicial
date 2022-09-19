@@ -38,11 +38,9 @@ function showProductInfo(productData) {
 }
 
 function showComments(commentData) {
-    const commentContainer = document.getElementById("comments");
     const list = document.getElementById("comment-list");
 
     commentData.forEach(comment => {
-        console.log(comment);
         let prevHtml = '';
 
         prevHtml += `<li class="list-group-item">`;
