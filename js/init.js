@@ -48,3 +48,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   document.getElementById("hp-username").innerHTML = localStorage.getItem("username");
 })
+
+function redirectCategory(id) {
+  localStorage.setItem("catID", id);
+  window.location = "products.html";
+}
+
+function redirectProduct(id) {
+  localStorage.setItem("product-id", id);
+  window.location.href = "product-info.html";
+}

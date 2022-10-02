@@ -15,6 +15,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 function showProductInfo(productData) {
+    setMainInfo(productData);
+    setRelatedProducts(productData.relatedProducts);
+}
+
+function showComments(commentData) {
+    const list = document.getElementById("comment-list");
+
+    commentData.forEach(comment => {
+        let prevHtml = '';
+
+        prevHtml += `<li class="list-group-item">`;
+        prevHtml += `<strong>${comment.user}</strong> - ${comment.dateTime} - `;
+
+        for (let i = 0; i < 5; i++) {
+            prevHtml += `<i class="${i < comment.score ? 'fa fa-star" style="color:orange;"' : 'far fa-star"'}></i>`;
+        }
+        prevHtml += `<br>${comment.description}</li>`;
+
+        list.innerHTML += prevHtml;
+    })
+}
+
+function setMainInfo(productData) {
     const productContainer = document.getElementById("product-info");
     productContainer.innerHTML +=
         `
@@ -37,20 +60,20 @@ function showProductInfo(productData) {
     });
 }
 
-function showComments(commentData) {
-    const list = document.getElementById("comment-list");
+function setRelatedProducts(productArray) {
+    console.log(productArray)
+    const relatedContainer = document.getElementById("related");
 
-    commentData.forEach(comment => {
-        let prevHtml = '';
-
-        prevHtml += `<li class="list-group-item">`;
-        prevHtml += `<strong>${comment.user}</strong> - ${comment.dateTime} - `;
-
-        for (let i = 0; i < 5; i++) {
-            prevHtml += `<i class="${i < comment.score ? 'fa fa-star" style="color:orange;"' : 'far fa-star"'}></i>`;
-        }
-        prevHtml += `<br>${comment.description}</li>`;
-
-        list.innerHTML += prevHtml;
+    productArray.forEach(item => {
+        relatedContainer.innerHTML += `
+        <div class="col-3">
+            <div class="card mb-3 shadow cursor-active" onclick="redirectProduct(${item.id})">
+                <img class="card-img-top" src="${item.image}" alt="${item.name}">
+                <div class="card-body">
+                    <h4 class="card-title mb-2">${item.name}</h4>
+                </div>
+            </div>
+        </div>
+        `;
     })
 }

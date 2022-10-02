@@ -67,8 +67,7 @@ function sortAndShowProducts(sortCriteria, productsArray) {
 }
 
 function saveProduct(id) {
-    localStorage.setItem("product-id", id);
-    window.location.href = "product-info.html";
+    redirectProduct(id);
 }
 
 function showProducts() {
