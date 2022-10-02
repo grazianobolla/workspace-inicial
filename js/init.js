@@ -42,7 +42,7 @@ let getJSONData = function (url) {
 
 document.addEventListener("DOMContentLoaded", function (e) {
   const username = localStorage.getItem("username");
-  if (username == 'undefined') {
+  if (username == 'undefined' || username == null) {
     window.location.href = "login.html";
     return;
   }
@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 })
 
 function addHeader() {
-  const nav = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1 id="cs"> <div class="container"> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav w-100 justify-content-between"> <li class="nav-item"> <a class="nav-link" href="index.html">Inicio</a> </li> <li class="nav-item"> <a class="nav-link" href="categories.html">Categorías</a> </li> <li class="nav-item"> <a class="nav-link active" href="sell.html">Vender</a> </li> <li class="nav-item dropdown"> <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">${localStorage.getItem("username")}</a>
+  const nav = `<div class="container"> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav w-100 justify-content-between"> <li class="nav-item"> <a class="nav-link" href="index.html">Inicio</a> </li> <li class="nav-item"> <a class="nav-link" href="categories.html">Categorías</a> </li> <li class="nav-item"> <a class="nav-link active" href="sell.html">Vender</a> </li> <li class="nav-item dropdown"> <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">${localStorage.getItem("username")}</a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="#" onclick="navMenuActions('cart')">Mi carrito</a></li>
     <li><a class="dropdown-item" href="#" onclick="navMenuActions('profile')">Mi perfil</a></li>
     <li><a class="dropdown-item" href="#" onclick="navMenuActions('logout')">Cerrar sesión</a></li>
-  </ul></li></ul></div></div></nav>`;
-  document.body.innerHTML = nav + document.body.innerHTML;
+  </ul></li></ul></div></div>`;
+  document.getElementById("navbarheader").innerHTML = nav;
 }
 
 function navMenuActions(action) {
