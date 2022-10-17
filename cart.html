@@ -15,9 +15,36 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbarheader"></nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h2 class="text-center">Carrito de compras</h2>
+      <h4>Articulos a comprar</h4>
+      <table id="cart-table" class="table">
+        <tr>
+          <th></th>
+          <th>Nombre</th>
+          <th>Costo</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+      </table>
+      <h5>Tipo de envio</h5>
+      <form>
+        <label><input type="radio" name="option" value="Option 1"> Premium 2 a 5 dias (15%)</label>
+        <br>
+        <label><input type="radio" name="option" value="Option 2"> Express 5 a 8 dias (7%)</label>
+        <br>
+        <label><input type="radio" name="option" value="Option 3"> Standard 12 a 15 dias (5%)</label>
+      </form>
+      <h4 class="mt-4">Direccion de envio</h4>
+      <form>
+        <label for="fcalle">Calle</label>
+        <input type="text" id="fcalle" name="fcalle">
+        <label for="lnumero">Número</label>
+        <input type="text" id="lnumero" name="lnumero">
+        <label for="lesquina">Esquina</label>
+        <input type="text" id="lesquina" name="lesquina">
+      </form>
+      <hr>
+      <button class="btn btn-primary">Comprar</button>
     </div>
   </main>
   <footer class="text-muted">

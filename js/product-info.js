@@ -61,7 +61,6 @@ function setMainInfo(productData) {
 }
 
 function setRelatedProducts(productArray) {
-    console.log(productArray)
     const relatedContainer = document.getElementById("related");
 
     productArray.forEach(item => {
