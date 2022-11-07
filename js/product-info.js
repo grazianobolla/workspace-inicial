@@ -1,9 +1,12 @@
+let currentProduct = {};
+
 document.addEventListener("DOMContentLoaded", function (e) {
     const prodId = localStorage.getItem("product-id");
 
     getJSONData(PRODUCT_INFO_URL + prodId + '.json').then(function (resultObj) {
         if (resultObj.status === "ok") {
             showProductInfo(resultObj.data);
+            currentProduct = resultObj.data;
         }
     })
 
@@ -13,6 +16,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     })
 });
+
+function buyItem() {
+    if (localStorage.getItem('buy-data') === null) {
+        localStorage.setItem('buy-data', '[]');
+    }
+
+    const localData = localStorage.getItem('buy-data');
+    let currentInfo = JSON.parse(localData);
+
+    if (currentInfo.some(e => e.id === currentProduct.id)) {
+        window.location.href = "cart.html";
+        return;
+    }
+
+    currentInfo.push(currentProduct);
+    localStorage.setItem('buy-data', JSON.stringify(currentInfo));
+
+    window.location.href = "cart.html";
+}
 
 function showProductInfo(productData) {
     setMainInfo(productData);
@@ -39,9 +61,11 @@ function showComments(commentData) {
 
 function setMainInfo(productData) {
     const productContainer = document.getElementById("product-info");
-    productContainer.innerHTML +=
-        `
-    <h2>${productData.name}</h2>
+    productContainer.innerHTML += `
+    <div class="d-flex justify-content-between">
+        <h2>${productData.name}</h2>
+        <button class="btn btn-success" onclick="buyItem()">Comprar</button>
+    </div>
     <hr>
     <strong>Precio</strong>
     <p>${productData.currency} ${productData.cost}</p>
