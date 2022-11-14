@@ -100,6 +100,4 @@ BUY_FORM.addEventListener('submit', function (event) {
         document.getElementById("success").classList.add("show");
         return;
     }
-
-
 });

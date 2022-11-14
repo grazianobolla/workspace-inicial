@@ -31,9 +31,44 @@
 
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <p class="h1">Perfil</p>
+      <hr>
+      <form id="profileForm" action="#">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="nameField" class="form-label">Primer nombre*</label>
+            <input type="text" class="form-control" id="nameField" value="" required>
+          </div>
+          <div class="col-md-4">
+            <label for="secondNameField" class="form-label">Segundo nombre</label>
+            <input type="text" class="form-control" id="secondNameField" value="">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="lastNameField" class="form-label">Primer apellido*</label>
+            <input type="text" class="form-control" id="lastNameField" value="" required>
+          </div>
+          <div class="col-md-4">
+            <label for="secondLastNameField" class="form-label">Segundo apellido</label>
+            <input type="text" class="form-control" id="secondLastNameField" value="">
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="emailInput" class="form-label">E-mail</label>
+            <input type="text" class="form-control" id="emailInput" value="">
+          </div>
+          <div class="col-md-4">
+            <label for="phoneField" class="form-label">Teléfono de contacto*</label>
+            <input type="text" class="form-control" id="phoneField" value="" required>
+          </div>
+        </div>
+        <hr>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Guardar cambios</button>
+        </div>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
